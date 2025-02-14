@@ -1,9 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from rango.models import Category
 
-def index(request):
-    # Construct a dictionary to pass to the template engine as its context.
-    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
-    
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    return render(request, 'rango/index.html', context=context_dict)
+def category_detail(request, category_slug):
+
+    category = get_object_or_404(Category, slug=category_slug)
+
+    pages = category.page_set.all()
+
+    context_dict = {
+        'category': category,
+        'pages': pages,
+    }
+
+    return render(request, 'rango/category_detail.html', context=context_dict)

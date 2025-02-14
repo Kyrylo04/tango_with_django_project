@@ -1,6 +1,8 @@
 from django.urls import path
-from . import views
+from rango import views
 
 urlpatterns = [
-    path('', views.index, name='index'),  # Map to the index view
+    path('', views.index, name='index'),
+    path('category/<slug:category_slug>/', views.category_detail, name='category_detail'),
+
 ]
