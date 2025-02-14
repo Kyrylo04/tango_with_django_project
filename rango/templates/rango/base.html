@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Rango - {% block title_block %}How to Tango with Django!{% endblock %}</title>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div>
+        <ul>
+            <li><a href="{% url 'rango:index' %}">Home</a></li>
+            <li><a href="{% url 'rango:add_category' %}">Add a New Category</a></li>
+            <li><a href="{% url 'rango:about' %}">About</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Block -->
+    <div>
+        {% block body_block %}
+        {% endblock %}
+    </div>
+
+    <hr />
+    <!-- Footer -->
+    <div>
+        <footer>© 2025 Tango with Django</footer>
+    </div>
+</body>
+</html>
