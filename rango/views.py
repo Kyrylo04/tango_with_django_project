@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponse
 
 def user_login(request):
     if request.method == 'POST':
@@ -76,3 +77,13 @@ def user_register(request):
     else:
         form = UserCreationForm()
     return render(request, 'rango/register.html', {'form': form})
+
+# Set prefence
+def set_user_preference(request):
+    request.session['user_preference'] = 'dark_mode'
+    return render(request, 'rango/preferences.html')
+
+# Get prefence
+def get_user_preference(request):
+    user_preference = request.session.get('user_preference', 'light_mode')
+    return render(request, 'rango/preferences.html', {'preference': user_preference})
