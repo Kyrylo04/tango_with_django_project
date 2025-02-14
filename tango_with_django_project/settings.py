@@ -35,6 +35,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = 'rango:index'
+LOGOUT_REDIRECT_URL = 'rango:index'
 
 # Application definition
 
