@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 from django.urls import include
 from rango import views
 
@@ -23,5 +24,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('rango/', include('rango.urls')),
     # The above maps any URLs starting with rango/ to be handled by rango.
+=======
+
+urlpatterns = [
+>>>>>>> 537c02ddd2a8527807a345ba1161e1e91e4fcf88
     path('admin/', admin.site.urls),
 ]
